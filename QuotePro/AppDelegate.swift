@@ -8,12 +8,21 @@
 
 import UIKit
 import CoreData
+import Nuke
+import Graph
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
+    
+//    var quoteArray: [Quote] = []
+//    
+//    func addQuote(quote: Quote) {
+//        quoteArray.append(quote)
+//        NSNotificationCenter.defaultCenter().postNotificationName("newQuote", object: nil)
+//    }
+//    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

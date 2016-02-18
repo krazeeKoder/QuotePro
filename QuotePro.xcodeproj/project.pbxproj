@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B191C0F1C9196CD3ED1EAC9 /* Pods_QuotePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561B6489083880F0A29A6C1B /* Pods_QuotePro.framework */; };
 		7B4530981C74E143000A2BD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4530971C74E143000A2BD0 /* AppDelegate.swift */; };
 		7B45309B1C74E144000A2BD0 /* QuotePro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B4530991C74E143000A2BD0 /* QuotePro.xcdatamodeld */; };
 		7B45309D1C74E144000A2BD0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B45309C1C74E144000A2BD0 /* MasterViewController.swift */; };
@@ -16,6 +17,10 @@
 		7B4530A71C74E144000A2BD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B4530A51C74E144000A2BD0 /* LaunchScreen.storyboard */; };
 		7B4530B21C74E144000A2BD0 /* QuoteProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4530B11C74E144000A2BD0 /* QuoteProTests.swift */; };
 		7B4530BD1C74E144000A2BD0 /* QuoteProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4530BC1C74E144000A2BD0 /* QuoteProUITests.swift */; };
+		7B4530CF1C74F708000A2BD0 /* NewQuotPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4530CE1C74F708000A2BD0 /* NewQuotPicViewController.swift */; };
+		7B4530D51C75234D000A2BD0 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4530D41C75234D000A2BD0 /* Quote.swift */; };
+		7B4530D71C752446000A2BD0 /* QuoteWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4530D61C752446000A2BD0 /* QuoteWebService.swift */; };
+		7B4530D91C7539A3000A2BD0 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4530D81C7539A3000A2BD0 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45EB2E48593ED35274EAD246 /* Pods-QuotePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuotePro/Pods-QuotePro.release.xcconfig"; sourceTree = "<group>"; };
+		561B6489083880F0A29A6C1B /* Pods_QuotePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuotePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		693D4E680567B9F0095FEEF9 /* Pods-QuotePro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotePro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuotePro/Pods-QuotePro.debug.xcconfig"; sourceTree = "<group>"; };
 		7B4530941C74E143000A2BD0 /* QuotePro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotePro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4530971C74E143000A2BD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B45309A1C74E144000A2BD0 /* QuotePro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuotePro.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +59,10 @@
 		7B4530B81C74E144000A2BD0 /* QuoteProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4530BC1C74E144000A2BD0 /* QuoteProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteProUITests.swift; sourceTree = "<group>"; };
 		7B4530BE1C74E144000A2BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B4530CE1C74F708000A2BD0 /* NewQuotPicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewQuotPicViewController.swift; sourceTree = "<group>"; };
+		7B4530D41C75234D000A2BD0 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		7B4530D61C752446000A2BD0 /* QuoteWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteWebService.swift; sourceTree = "<group>"; };
+		7B4530D81C7539A3000A2BD0 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B191C0F1C9196CD3ED1EAC9 /* Pods_QuotePro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6CFBAA58C3E4397F26DFBC52 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				693D4E680567B9F0095FEEF9 /* Pods-QuotePro.debug.xcconfig */,
+				45EB2E48593ED35274EAD246 /* Pods-QuotePro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7B45308B1C74E143000A2BD0 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +107,8 @@
 				7B4530B01C74E144000A2BD0 /* QuoteProTests */,
 				7B4530BB1C74E144000A2BD0 /* QuoteProUITests */,
 				7B4530951C74E143000A2BD0 /* Products */,
+				6CFBAA58C3E4397F26DFBC52 /* Pods */,
+				C4A3B74477C09C152FBC1D15 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +133,10 @@
 				7B4530A51C74E144000A2BD0 /* LaunchScreen.storyboard */,
 				7B4530A81C74E144000A2BD0 /* Info.plist */,
 				7B4530991C74E143000A2BD0 /* QuotePro.xcdatamodeld */,
+				7B4530CE1C74F708000A2BD0 /* NewQuotPicViewController.swift */,
+				7B4530D41C75234D000A2BD0 /* Quote.swift */,
+				7B4530D61C752446000A2BD0 /* QuoteWebService.swift */,
+				7B4530D81C7539A3000A2BD0 /* UIImageExtension.swift */,
 			);
 			path = QuotePro;
 			sourceTree = "<group>";
@@ -131,6 +159,14 @@
 			path = QuoteProUITests;
 			sourceTree = "<group>";
 		};
+		C4A3B74477C09C152FBC1D15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				561B6489083880F0A29A6C1B /* Pods_QuotePro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B4530C11C74E144000A2BD0 /* Build configuration list for PBXNativeTarget "QuotePro" */;
 			buildPhases = (
+				1DA26BFADB5C008E95685490 /* Check Pods Manifest.lock */,
 				7B4530901C74E143000A2BD0 /* Sources */,
 				7B4530911C74E143000A2BD0 /* Frameworks */,
 				7B4530921C74E143000A2BD0 /* Resources */,
+				A474300002D9BE7D21964F3A /* Embed Pods Frameworks */,
+				AECA181D6CD22E382BA348AE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,6 +296,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1DA26BFADB5C008E95685490 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A474300002D9BE7D21964F3A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuotePro/Pods-QuotePro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AECA181D6CD22E382BA348AE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuotePro/Pods-QuotePro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7B4530901C74E143000A2BD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -264,8 +351,12 @@
 			files = (
 				7B45309B1C74E144000A2BD0 /* QuotePro.xcdatamodeld in Sources */,
 				7B4530981C74E143000A2BD0 /* AppDelegate.swift in Sources */,
+				7B4530D71C752446000A2BD0 /* QuoteWebService.swift in Sources */,
 				7B45309D1C74E144000A2BD0 /* MasterViewController.swift in Sources */,
 				7B45309F1C74E144000A2BD0 /* DetailViewController.swift in Sources */,
+				7B4530D51C75234D000A2BD0 /* Quote.swift in Sources */,
+				7B4530CF1C74F708000A2BD0 /* NewQuotPicViewController.swift in Sources */,
+				7B4530D91C7539A3000A2BD0 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +494,7 @@
 		};
 		7B4530C21C74E144000A2BD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 693D4E680567B9F0095FEEF9 /* Pods-QuotePro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = QuotePro/Info.plist;
@@ -414,6 +506,7 @@
 		};
 		7B4530C31C74E144000A2BD0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45EB2E48593ED35274EAD246 /* Pods-QuotePro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = QuotePro/Info.plist;
@@ -490,6 +583,7 @@
 				7B4530C31C74E144000A2BD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B4530C41C74E144000A2BD0 /* Build configuration list for PBXNativeTarget "QuoteProTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +592,7 @@
 				7B4530C61C74E144000A2BD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B4530C71C74E144000A2BD0 /* Build configuration list for PBXNativeTarget "QuoteProUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +601,7 @@
 				7B4530C91C74E144000A2BD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

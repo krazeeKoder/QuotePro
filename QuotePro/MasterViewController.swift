@@ -8,15 +8,87 @@
 
 import UIKit
 import CoreData
+import Graph
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
+    var quoteArray: [Quote] = []
 
+    override func viewDidAppear(animated: Bool) {
+        let value = UIInterfaceOrientation.Portrait.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        
+        let graph: Graph = Graph()
+        
+        let collection: Array<Entity> = graph.searchForEntity(types: ["Quote"])
+        
+        self.quoteArray.removeAll()
+        for entity: Entity in collection {
+            let newQuote = Quote() //Entity.init(type: "Quote")
+            newQuote.image = entity["image"] as! UIImage
+            newQuote.quoteString = entity["quoteString"] as! String
+            newQuote.quoteAuthor = entity["quoteAuthor"] as! String
+            
+            quoteArray.append(newQuote)
+        }
+        
+        
+        
+        self.tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserverForName("addQuote", object: nil, queue:
+            NSOperationQueue.mainQueue()) { (NSNotification) -> Void in
+                self.tableView.reloadData()
+        }
+        
+//        let quoteEndpoint: String = "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json"
+//        guard let url = NSURL(string: quoteEndpoint) else {
+//            print("Error: cannot create URL")
+//            return
+//        }
+//        let urlRequest = NSURLRequest(URL: url)
+//        
+//        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+//        let session = NSURLSession(configuration: config)
+//        
+//        let task = session.dataTaskWithRequest(urlRequest, completionHandler: { (data, response, error) in
+//            guard let responseData = data else {
+//                print("Error: did not receive data")
+//                return
+//            }
+//            guard error == nil else {
+//                print("error calling GET on /posts/1")
+//                print(error)
+//                return
+//            }
+//            // parse the result as JSON, since that's what the API provides
+//            let post: NSDictionary
+//            do {
+//                post = try NSJSONSerialization.JSONObjectWithData(responseData,
+//                    options: []) as! NSDictionary
+//            } catch  {
+//                print("error trying to convert data to JSON")
+//                return
+//            }
+//            // now we have the post, let's just print it to prove we can access it
+//            print("The post is: " + post.description)
+//            
+//            // the post object is a dictionary
+//            // so we just access the title using the "title" key
+//            // so check for a title and print it if we have one
+//            if let postTitle = post["title"] as? String {
+//                print("The title is: " + postTitle)
+//            }
+//        })
+//        task.resume()
+//        
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
@@ -26,6 +98,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return true
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -39,23 +115,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func insertNewObject(sender: AnyObject) {
-        let context = self.fetchedResultsController.managedObjectContext
-        let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context)
-             
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue(NSDate(), forKey: "timeStamp")
-             
-        // Save the context.
-        do {
-            try context.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //print("Unresolved error \(error), \(error.userInfo)")
-            abort()
-        }
+        
+        self.presentViewController(NewQuotPicViewController(), animated: true, completion: nil)
+        
     }
 
     // MARK: - Segues
@@ -75,17 +137,23 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Table View
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.fetchedResultsController.sections?.count ?? 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.fetchedResultsController.sections![section]
-        return sectionInfo.numberOfObjects
+        //let sectionInfo = self.fetchedResultsController.sections![section]
+        return self.quoteArray.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        self.configureCell(cell, atIndexPath: indexPath)
+        //self.configureCell(cell, atIndexPath: indexPath)
+        
+        let tableNewQuote = self.quoteArray[indexPath.row]
+        
+        cell.imageView!.image = tableNewQuote.image
+    
         return cell
     }
 
@@ -96,17 +164,15 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let context = self.fetchedResultsController.managedObjectContext
-            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
-                
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                //print("Unresolved error \(error), \(error.userInfo)")
-                abort()
-            }
+            
+            let quoteToDelete: Quote =  quoteArray[indexPath.row]
+            Graph.delete(quoteToDelete)
+              //quoteToDelete.delete()
+              quoteArray.removeAtIndex(indexPath.row)
+              //Graph().save()
+//            let context = self.fetchedResultsController.managedObjectContext
+//            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
+//
         }
     }
 
